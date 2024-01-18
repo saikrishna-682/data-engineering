@@ -80,6 +80,6 @@ def delete_record(empid):
 
     return f'record delete successfully: {empid}'
 
-
+# host must be to open ports 0.0.0.0
 if __name__ == "__main__":
     app.run(debug=True, port=5000, host='0.0.0.0')

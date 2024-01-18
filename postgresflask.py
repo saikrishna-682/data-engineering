@@ -1,12 +1,21 @@
+import os
 from flask import Flask, render_template, request, jsonify
 import psycopg2
 
+
+# Set environment variables for database connection
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
+DB_DATABASE = os.getenv("DB_DATABASE", "postgres")
+DB_PORT = os.getenv("DB_PORT", 5432)
+
 db_params = psycopg2.connect(
-    host="localhost",
-    user="postgres",
-    password="password",
-    database="postgres",
-    port=5432
+    host=DB_HOST,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    database=DB_DATABASE,
+    port=DB_PORT
 )
 
 db_cursor = db_params.cursor()

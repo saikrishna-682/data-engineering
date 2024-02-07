@@ -32,6 +32,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/default')
+def default_record():
+    data = [
+        {'empid': 1, 'empname': 'John Doe', 'empsal': 50000},
+        {'empid': 2, 'empname': 'Jane Smith', 'empsal': 60000}
+    ]
+    return jsonify(data)
+
 
 @app.route('/save_record', methods=['POST'])
 def saveRecord():
